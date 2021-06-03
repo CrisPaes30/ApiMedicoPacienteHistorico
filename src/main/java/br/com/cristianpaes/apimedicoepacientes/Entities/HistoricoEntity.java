@@ -6,8 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "historico")
 public class HistoricoEntity {
@@ -36,7 +35,7 @@ public class HistoricoEntity {
     public HistoricoEntity(Long id, MedicoEntity medico_id, String dataHoraEntrada,
                            String dataHoraSaida, String diagnostico) {
         this.id = id;
-        this.medico_id = medico_id;
+        //this.medico_id = medico_id;
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaida = dataHoraSaida;
         this.diagnostico = diagnostico;
@@ -47,4 +46,51 @@ public class HistoricoEntity {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDataHoraEntrada() {
+        return dataHoraEntrada;
+    }
+
+    public void setDataHoraEntrada(String dataHoraEntrada) {
+        this.dataHoraEntrada = dataHoraEntrada;
+    }
+
+    public String getDataHoraSaida() {
+        return dataHoraSaida;
+    }
+
+    public void setDataHoraSaida(String dataHoraSaida) {
+        this.dataHoraSaida = dataHoraSaida;
+    }
+
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public MedicoEntity getMedico_id() {
+        return medico_id;
+    }
+
+    public void setMedico_id(MedicoEntity medico_id) {
+        this.medico_id = medico_id;
+    }
+
+    public PacienteEntity getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(PacienteEntity pacientes) {
+        this.pacientes = pacientes;
+    }
 }
