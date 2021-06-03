@@ -20,7 +20,6 @@ public class PacienteService {
     }
 
 
-
     public PacienteEntity findById(Long id){
         return pacienteRepository.findById(id).orElse(null);
     }

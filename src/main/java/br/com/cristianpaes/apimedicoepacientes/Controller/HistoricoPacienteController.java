@@ -1,7 +1,7 @@
 package br.com.cristianpaes.apimedicoepacientes.Controller;
 
 import br.com.cristianpaes.apimedicoepacientes.DTO.HistoricoPacienteDTO;
-import br.com.cristianpaes.apimedicoepacientes.Entities.MedicoEntity;
+import br.com.cristianpaes.apimedicoepacientes.Entities.HistoricoEntity;
 import br.com.cristianpaes.apimedicoepacientes.Services.HistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +23,14 @@ public class HistoricoPacienteController {
         return historicoService.findAll();
     }
 
-//    @GetMapping("/{id}")
-//    public MedicoEntity findById(@PathVariable("id") final Long id){
-//        return historicoService.findById(id);
-//    }
+    @GetMapping("/{id}")
+    public HistoricoPacienteDTO findById(@PathVariable("id") final Long id){
+        return historicoService.findById(id);
+    }
+
+    @GetMapping("/diagnostico{diagnostico}")
+    public List<HistoricoEntity> findByDiagnostico(@PathVariable("diagnostico")
+                                                        final String diagnostico){
+        return historicoService.findByDiagnostico(diagnostico);
+    }
 }

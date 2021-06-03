@@ -78,19 +78,19 @@ public class PacienteEntity {
         this.telefone = telefone;
     }
 
-    public MedicoEntity getMedico() {
-        return medico;
-    }
-
-    public void setMedico(MedicoEntity medico) {
-        this.medico = medico;
-    }
-
-    public HistoricoEntity getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(HistoricoEntity paciente) {
-        this.paciente = paciente;
-    }
+//    public MedicoEntity getMedico() {
+//        return medico;
+//    }
+//
+//    public void setMedico(MedicoEntity medico) {
+//        this.medico = medico;
+//    }
+//
+//    public HistoricoEntity getPaciente() {
+//        return paciente;
+//    }
+//
+//    public void setPaciente(HistoricoEntity paciente) {
+//        this.paciente = paciente;
+//    }
 }
