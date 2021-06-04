@@ -21,6 +21,10 @@ public class MedicoService {
          return medicoRepository.findById(id).orElse(null);
      }
 
+     public List<MedicoEntity> findByIdMedico(){
+         return medicoRepository.findByDepartamento();
+     }
+
      public MedicoEntity create(MedicoEntity medico){
          return medicoRepository.save(medico);
      }

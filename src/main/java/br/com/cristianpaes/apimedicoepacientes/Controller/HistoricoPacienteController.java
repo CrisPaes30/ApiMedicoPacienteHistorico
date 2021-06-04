@@ -1,13 +1,9 @@
 package br.com.cristianpaes.apimedicoepacientes.Controller;
 
 import br.com.cristianpaes.apimedicoepacientes.DTO.HistoricoPacienteDTO;
-import br.com.cristianpaes.apimedicoepacientes.Entities.HistoricoEntity;
 import br.com.cristianpaes.apimedicoepacientes.Services.HistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,12 +21,12 @@ public class HistoricoPacienteController {
 
     @GetMapping("/{id}")
     public HistoricoPacienteDTO findById(@PathVariable("id") final Long id){
-        return historicoService.findById(id);
+        return this.historicoService.findById(id);
     }
 
     @GetMapping("/diagnostico{diagnostico}")
-    public List<HistoricoEntity> findByDiagnostico(@PathVariable("diagnostico")
+    public List<HistoricoPacienteDTO> findByDiagnostico(@RequestParam(required = false)
                                                         final String diagnostico){
-        return historicoService.findByDiagnostico(diagnostico);
+        return this.historicoService.findByDiagnostico(diagnostico);
     }
 }

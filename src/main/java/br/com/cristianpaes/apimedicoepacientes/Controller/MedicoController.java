@@ -25,6 +25,11 @@ public class MedicoController {
         return medicoService.findById(id);
     }
 
+    @GetMapping("/greaterThan{id}")
+    public List<MedicoEntity> findByGroupMedico(){
+        return medicoService.findByIdMedico();
+    }
+
     @PostMapping
     public void create(@RequestBody final MedicoEntity medico){
         this.medicoService.create(medico);
