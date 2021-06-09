@@ -30,7 +30,7 @@ public class MedicoEntity {
     @OneToMany(mappedBy = "medico")
     private List<PacienteEntity> pacientes;
 
-    @OneToMany(mappedBy = "medico_id")
+    @OneToMany(mappedBy = "medicoId")
     private List<HistoricoEntity> historicos;
 
 

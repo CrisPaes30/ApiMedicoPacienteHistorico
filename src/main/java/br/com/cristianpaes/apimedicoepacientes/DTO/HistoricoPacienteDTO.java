@@ -12,5 +12,6 @@ public class HistoricoPacienteDTO {
     String dataEntrada;
     String dataSaida;
     String diagnostico;
+    String departamento;
 
 }

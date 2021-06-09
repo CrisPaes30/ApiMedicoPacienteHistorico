@@ -1,6 +1,8 @@
 package br.com.cristianpaes.apimedicoepacientes.Services;
 
+import br.com.cristianpaes.apimedicoepacientes.Entities.HistoricoEntity;
 import br.com.cristianpaes.apimedicoepacientes.Entities.MedicoEntity;
+import br.com.cristianpaes.apimedicoepacientes.Repositories.HistoricoRepository;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ public class MedicoService {
      @Autowired
      MedicoRepository medicoRepository;
 
+     @Autowired
+     HistoricoRepository historicoRepository;
+
      public List<MedicoEntity> findAll(){
          return medicoRepository.findAll();
      }
@@ -21,9 +26,6 @@ public class MedicoService {
          return medicoRepository.findById(id).orElse(null);
      }
 
-     public List<MedicoEntity> findByIdMedico(){
-         return medicoRepository.findByDepartamento();
-     }
 
      public MedicoEntity create(MedicoEntity medico){
          return medicoRepository.save(medico);

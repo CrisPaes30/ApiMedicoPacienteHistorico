@@ -9,4 +9,5 @@ public class MedicoDTO {
 
     Long id;
     String nome;
+    String departamento;
 }

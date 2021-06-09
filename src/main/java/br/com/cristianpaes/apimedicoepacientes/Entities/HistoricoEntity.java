@@ -27,15 +27,15 @@ public class HistoricoEntity {
 
     @ManyToOne
     @JoinColumn(name = "MedicoResponsavel_id")
-    private MedicoEntity medico_id;
+    private MedicoEntity medicoId;
 
     @OneToOne
     private PacienteEntity pacientes;
 
-    public HistoricoEntity(Long id, MedicoEntity medico_id, String dataHoraEntrada,
+    public HistoricoEntity(Long id, MedicoEntity medicoId, String dataHoraEntrada,
                            String dataHoraSaida, String diagnostico) {
         this.id = id;
-        //this.medico_id = medico_id;
+        this.medicoId = medicoId;
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaida = dataHoraSaida;
         this.diagnostico = diagnostico;
@@ -78,12 +78,12 @@ public class HistoricoEntity {
         this.diagnostico = diagnostico;
     }
 
-    public MedicoEntity getMedico_id() {
-        return medico_id;
+    public MedicoEntity getMedicoId() {
+        return medicoId;
     }
 
-    public void setMedico_id(MedicoEntity medico_id) {
-        this.medico_id = medico_id;
+    public void setMedicoId(MedicoEntity medicoId) {
+        this.medicoId = medicoId;
     }
 
     public PacienteEntity getPacientes() {

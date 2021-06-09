@@ -17,7 +17,8 @@ public class HpDTO {
         historicoPacienteDTO.setDataEntrada(entity.getDataHoraEntrada());
         historicoPacienteDTO.setDataSaida(entity.getDataHoraSaida());
         historicoPacienteDTO.setDiagnostico(entity.getDiagnostico());
-        historicoPacienteDTO.setNomeMedico(toMedicoDto(entity.getMedico_id()).getNome());
+        historicoPacienteDTO.setNomeMedico(toMedicoDto(entity.getMedicoId()).getNome());
+        historicoPacienteDTO.setDepartamento(toMedicoDto(entity.getMedicoId()).getDepartamento());
 
         return historicoPacienteDTO;
 
@@ -29,6 +30,7 @@ public class HpDTO {
         MedicoDTO medicoDTO = new MedicoDTO();
         medicoDTO.setId(entity.getId());
         medicoDTO.setNome(entity.getNome());
+        medicoDTO.setDepartamento(entity.getDepartamento());
 
         return medicoDTO;
     }
