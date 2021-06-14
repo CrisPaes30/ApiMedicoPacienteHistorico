@@ -45,8 +45,16 @@ public class HistoricoService {
                 .collect(Collectors.toList());
     }
 
-    public List<HistoricoEntity> findByIdMedico(Long id){
-        return historicoRepository.findByIdMedicoIdOrderBy(id);
+//    public List<HistoricoEntity> findByIdMedico(Long id){
+//        return historicoRepository.findByIdMedicoIdOrderBy(id);
+//    }
+
+    public List<HistoricoPacienteDTO> findByIdMedico(Long id){
+        return historicoRepository.findByIdMedicoIdOrderBy(id)
+                .stream()
+                //.filter(m -> m.getMedicoId().equals(id))
+                .map(hpDTO::toPacienteDTO)
+                .collect(Collectors.toList());
     }
 
 

@@ -13,12 +13,13 @@ public class HpDTO {
     public HistoricoPacienteDTO toPacienteDTO(HistoricoEntity entity) {
 
         var historicoPacienteDTO  = new HistoricoPacienteDTO();
+        historicoPacienteDTO.setId(toMedicoDto((MedicoEntity) entity.getMedicoId()).getId());
         historicoPacienteDTO.setNomePaciente(toPaciente(entity.getPacientes()).getNome());
         historicoPacienteDTO.setDataEntrada(entity.getDataHoraEntrada());
         historicoPacienteDTO.setDataSaida(entity.getDataHoraSaida());
         historicoPacienteDTO.setDiagnostico(entity.getDiagnostico());
-        historicoPacienteDTO.setNomeMedico(toMedicoDto(entity.getMedicoId()).getNome());
-        historicoPacienteDTO.setDepartamento(toMedicoDto(entity.getMedicoId()).getDepartamento());
+        historicoPacienteDTO.setNomeMedico(toMedicoDto((MedicoEntity) entity.getMedicoId()).getNome());
+        historicoPacienteDTO.setDepartamento(toMedicoDto((MedicoEntity) entity.getMedicoId()).getDepartamento());
 
         return historicoPacienteDTO;
 

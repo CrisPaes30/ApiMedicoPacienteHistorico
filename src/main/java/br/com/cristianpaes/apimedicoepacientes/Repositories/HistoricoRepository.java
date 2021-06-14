@@ -15,14 +15,16 @@ public interface HistoricoRepository extends JpaRepository<HistoricoEntity,Long>
 
     List<HistoricoEntity> findByDiagnosticoContaining(String diagnostico);
 
-//    @Query(value = "SELECT h.id,h.medico_responsavel_id,h.data_hora_entrada,h.data_hora_saida,h.diagnostico,h.pacientes_id" +
-//            " FROM historico h GROUP BY historico.id WHERE h.medico_responsavel_id >?1 and h.pacientes_id>?1;",nativeQuery = true)
 
-    @Query("SELECT h FROM HistoricoEntity h WHERE h.id >?1")
+    @Query(value = "select h.id,h.pacientes_id ,h.medico_responsavel_id, h.data_hora_entrada, h.data_hora_saida, h.diagnostico, count(*) \n" +
+            "from historico h \n" +
+            "where h.medico_responsavel_id >?1 \n" +
+            "group by h.id\n" +
+            "order by count(*) DESC",nativeQuery = true)
     List<HistoricoEntity> findByIdMedicoIdOrderBy(Long id);
 
 
-    //
+    //@Query("SELECT h.medicoId FROM HistoricoEntity h WHERE h.medicoId >?1")
     //  @Query(value = "SELECT * FROM historico h WHERE h.pacientes_id >?1",nativeQuery = true)
 
 
