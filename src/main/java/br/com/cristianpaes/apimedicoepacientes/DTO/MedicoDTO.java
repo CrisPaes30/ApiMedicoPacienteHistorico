@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class MedicoDTO {
 
-    Long id;
+    Long idMatricula;
     String nome;
     String departamento;
 }
