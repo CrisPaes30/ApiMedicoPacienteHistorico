@@ -30,7 +30,7 @@ public class HistoricoPacienteController {
         return this.historicoService.findByDiagnostico(diagnostico);
     }
 
-    @GetMapping("/group{nomeMedico}")
+    @GetMapping("/group{id}")
     public List<HistoricoPacienteDTO> findByGroupMedico(@RequestParam(required = false) Long id) {
         return historicoService.findByIdMedico(id);
 

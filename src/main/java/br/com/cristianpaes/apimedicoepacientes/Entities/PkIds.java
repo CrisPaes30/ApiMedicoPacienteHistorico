@@ -2,6 +2,7 @@ package br.com.cristianpaes.apimedicoepacientes.Entities;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.JoinColumn;
@@ -17,9 +18,10 @@ public class PkIds implements Serializable {
 
     @EqualsAndHashCode.Include
     @JoinColumn(name = "medicoResponsavel_id")
-    private Long medicoResponsavel;
+    private Long IdMedicoResponsavel;
 
     @EqualsAndHashCode.Include
-    @JoinColumn(name = "paciente")
-    private Long pacientes;
+    //@JoinColumn(name = "paciente")
+    private Long pacienteId;
+
 }

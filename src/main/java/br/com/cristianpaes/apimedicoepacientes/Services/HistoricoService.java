@@ -3,7 +3,6 @@ package br.com.cristianpaes.apimedicoepacientes.Services;
 import br.com.cristianpaes.apimedicoepacientes.DTO.HistoricoPacienteDTO;
 import br.com.cristianpaes.apimedicoepacientes.DTO.HpDTO;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.HistoricoRepository;
-import br.com.cristianpaes.apimedicoepacientes.Repositories.HistoricoTestRepository;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,21 +14,11 @@ import java.util.stream.Collectors;
 public class HistoricoService {
 
 
-
+    @Autowired
     HistoricoRepository historicoRepository;
 
-    MedicoRepository medicoRepository;
-
-    HistoricoTestRepository historicoTestRepository;
-
+    @Autowired
     HpDTO hpDTO;
-
-    public HistoricoService(HistoricoRepository historicoRepository, MedicoRepository medicoRepository, HistoricoTestRepository historicoTestRepository, HpDTO hpDTO) {
-        this.historicoRepository = historicoRepository;
-        this.medicoRepository = medicoRepository;
-        this.historicoTestRepository = historicoTestRepository;
-        this.hpDTO = hpDTO;
-    }
 
     public List<HistoricoPacienteDTO> findAll(){
         return historicoRepository.findAll()
@@ -54,7 +43,7 @@ public class HistoricoService {
 
 
     public List<HistoricoPacienteDTO> findByIdMedico(Long id){
-        return historicoTestRepository.findByIdMedicoIdOrderBy(id)
+        return historicoRepository.findByIdMedicoResponsavelOrderBy(id)
                 .stream()
                 .map(hpDTO::toPacienteDTO)
                 .collect(Collectors.toList());

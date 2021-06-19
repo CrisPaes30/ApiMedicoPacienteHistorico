@@ -15,8 +15,6 @@ public class MedicoService {
      @Autowired
      MedicoRepository medicoRepository;
 
-     @Autowired
-     HistoricoRepository historicoRepository;
 
      public List<MedicoEntity> findAll(){
          return medicoRepository.findAll();
