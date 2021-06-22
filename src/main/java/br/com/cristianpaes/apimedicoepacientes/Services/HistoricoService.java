@@ -2,10 +2,12 @@ package br.com.cristianpaes.apimedicoepacientes.Services;
 
 import br.com.cristianpaes.apimedicoepacientes.DTO.HistoricoPacienteDTO;
 import br.com.cristianpaes.apimedicoepacientes.DTO.HpDTO;
+import br.com.cristianpaes.apimedicoepacientes.DTO.MedDpDTO;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Historico;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.HistoricoRepository;
-import br.com.cristianpaes.apimedicoepacientes.Repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,13 +43,18 @@ public class HistoricoService {
                 .collect(Collectors.toList());
     }
 
+//
+//    public List<HistoricoPacienteDTO> findByIdMedico(Long id){
+//        return historicoRepository.findByIdMedicoResponsavel(id)
+//                .stream()
+//                .map(hpDTO::toPacienteDTO)
+//                .collect(Collectors.toList());
+//    }
 
-    public List<HistoricoPacienteDTO> findByIdMedico(Long id){
-        return historicoRepository.findByIdMedicoResponsavelOrderBy(id)
-                .stream()
-                .map(hpDTO::toPacienteDTO)
-                .collect(Collectors.toList());
-    }
+
+
+
+
 
 
 

@@ -1,10 +1,5 @@
 package br.com.cristianpaes.apimedicoepacientes.Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -12,7 +7,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "historico")
 @IdClass(PkIds.class)
-public class HistoricoEntity implements Serializable {
+public class Historico implements Serializable {
 
     @Column(nullable = false)
     String dataHoraEntrada;
@@ -31,17 +26,17 @@ public class HistoricoEntity implements Serializable {
     @JoinColumns(value = {
             @JoinColumn(name = "idMedicoResponsavel", referencedColumnName = "idMatricula", insertable = false, updatable = false)
     })
-    private MedicoEntity IdMedicoResponsavel;
+    private Medico IdMedicoResponsavel;
 
     @OneToOne
     @JoinColumns(value = {
             @JoinColumn(name = "pacienteId", referencedColumnName = "pacienteId", insertable = false, updatable = false)
     })
-    private PacienteEntity pacienteId;
+    private Paciente pacienteId;
 
 
-    public HistoricoEntity(String dataHoraEntrada, String dataHoraSaida, String diagnostico, PkIds pkIds,
-                           MedicoEntity idMedicoResponsavel, PacienteEntity pacienteId) {
+    public Historico(String dataHoraEntrada, String dataHoraSaida, String diagnostico, PkIds pkIds,
+                     Medico idMedicoResponsavel, Paciente pacienteId) {
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaida = dataHoraSaida;
         this.diagnostico = diagnostico;
@@ -50,7 +45,7 @@ public class HistoricoEntity implements Serializable {
         this.pacienteId = pacienteId;
     }
 
-    public HistoricoEntity(){
+    public Historico(){
 
     }
 
@@ -86,19 +81,19 @@ public class HistoricoEntity implements Serializable {
         this.pkIds = pkIds;
     }
 
-    public MedicoEntity getIdMedicoResponsavel() {
+    public Medico getIdMedicoResponsavel() {
         return IdMedicoResponsavel;
     }
 
-    public void setIdMedicoResponsavel(MedicoEntity idMedicoResponsavel) {
+    public void setIdMedicoResponsavel(Medico idMedicoResponsavel) {
         IdMedicoResponsavel = idMedicoResponsavel;
     }
 
-    public PacienteEntity getPacienteId() {
+    public Paciente getPacienteId() {
         return pacienteId;
     }
 
-    public void setPacienteId(PacienteEntity pacienteId) {
+    public void setPacienteId(Paciente pacienteId) {
         this.pacienteId = pacienteId;
     }
 }

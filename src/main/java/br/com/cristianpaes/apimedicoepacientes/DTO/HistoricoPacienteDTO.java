@@ -7,8 +7,9 @@ import lombok.Setter;
 @Setter
 public class HistoricoPacienteDTO {
 
-    Long idPaciente;
+
     Long idMatricula;
+    Long idPaciente;
     String nomePaciente;
     String nomeMedico;
     String dataEntrada;

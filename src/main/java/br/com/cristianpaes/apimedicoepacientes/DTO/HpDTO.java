@@ -1,19 +1,17 @@
 package br.com.cristianpaes.apimedicoepacientes.DTO;
 
-import br.com.cristianpaes.apimedicoepacientes.Entities.HistoricoEntity;
-import br.com.cristianpaes.apimedicoepacientes.Entities.MedicoEntity;
-import br.com.cristianpaes.apimedicoepacientes.Entities.PacienteEntity;
-import br.com.cristianpaes.apimedicoepacientes.Entities.PkIds;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Historico;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Medico;
 import org.springframework.stereotype.Component;
 
 @Component
 public class HpDTO {
 
-    public HistoricoPacienteDTO toPacienteDTO(HistoricoEntity entity) {
+    public HistoricoPacienteDTO toPacienteDTO(Historico entity) {
 
         var historicoPacienteDTO  = new HistoricoPacienteDTO();
-        historicoPacienteDTO.setIdPaciente(entity.getPacienteId().getPacienteId());
         historicoPacienteDTO.setIdMatricula(entity.getIdMedicoResponsavel().getIdMatricula());
+        historicoPacienteDTO.setIdPaciente(entity.getPacienteId().getPacienteId());
         historicoPacienteDTO.setNomePaciente(entity.getPacienteId().getNome());
         historicoPacienteDTO.setDataEntrada(entity.getDataHoraEntrada());
         historicoPacienteDTO.setDataSaida(entity.getDataHoraSaida());
@@ -25,8 +23,7 @@ public class HpDTO {
 
     }
 
-
-    public MedicoDTO toMedicoDto(MedicoEntity entity){
+    public MedicoDTO toMedicoDto(Medico entity){
 
         MedicoDTO medicoDTO = new MedicoDTO();
         medicoDTO.setIdMatricula(entity.getIdMatricula());
@@ -36,14 +33,6 @@ public class HpDTO {
         return medicoDTO;
     }
 
-    public PacienteDTO toPaciente(PkIds pacienteEntity){
-
-        PacienteDTO pacienteDTO = new PacienteDTO();
-        pacienteDTO.setIdPaciente(pacienteEntity.getPacienteId());
-//        pacienteDTO.setNome(pacienteEntity.getNome());
-
-        return pacienteDTO;
-    }
 
 
 }

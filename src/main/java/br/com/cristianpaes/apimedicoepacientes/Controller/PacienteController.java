@@ -1,6 +1,6 @@
 package br.com.cristianpaes.apimedicoepacientes.Controller;
 
-import br.com.cristianpaes.apimedicoepacientes.Entities.PacienteEntity;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Paciente;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.PacienteRepository;
 import br.com.cristianpaes.apimedicoepacientes.Services.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/paciente")
 public class PacienteController {
 
-    private final List<PacienteEntity> pacientes;
+    private final List<Paciente> pacientes;
 
     @Autowired
     PacienteService pacienteService;
@@ -22,28 +22,28 @@ public class PacienteController {
     PacienteRepository pacienteRepository;
 
 
-    public PacienteController(List<PacienteEntity> pacientes) {
+    public PacienteController(List<Paciente> pacientes) {
         this.pacientes = new ArrayList<>();
     }
 
     @GetMapping
-    public List<PacienteEntity> findAll(){
+    public List<Paciente> findAll(){
         return pacienteService.findAll();
     }
 
 
     @GetMapping("/{id}")
-    public PacienteEntity findById(@PathVariable("id") final Long id){
+    public Paciente findById(@PathVariable("id") final Long id){
         return pacienteService.findById(id);
     }
 
     @PostMapping
-    public void create(@RequestBody final PacienteEntity paciente){
+    public void create(@RequestBody final Paciente paciente){
         this.pacienteService.create(paciente);
     }
 
     @PutMapping
-    public void update(@RequestBody final PacienteEntity paciente){
+    public void update(@RequestBody final Paciente paciente){
         this.pacienteService.update(paciente);
     }
 

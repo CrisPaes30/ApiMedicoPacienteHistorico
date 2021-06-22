@@ -1,16 +1,13 @@
 package br.com.cristianpaes.apimedicoepacientes.Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import br.com.cristianpaes.apimedicoepacientes.DTO.MedDpDTO;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "medico")
-public class MedicoEntity {
+public class Medico {
 
 
     @Id
@@ -30,9 +27,9 @@ public class MedicoEntity {
     String nomeMedico;
 
     @OneToMany(mappedBy = "medico")
-    private List<PacienteEntity> pacientes;
+    private List<Paciente> pacientes;
 
-    public MedicoEntity(Long idMatricula, String departamento, String cargo, Integer telefone, String nomeMedico) {
+    public Medico(Long idMatricula, String departamento, String cargo, Integer telefone, String nomeMedico) {
         this.idMatricula = idMatricula;
         this.departamento = departamento;
         this.cargo = cargo;
@@ -40,8 +37,11 @@ public class MedicoEntity {
         this.nomeMedico = nomeMedico;
     }
 
-    public MedicoEntity(){
+    public Medico(){
 
+    }
+
+    public Medico(List<MedDpDTO> listaMed, Medico md) {
     }
 
     public Long getIdMatricula() {
@@ -82,5 +82,13 @@ public class MedicoEntity {
 
     public void setNomeMedico(String nomeMedico) {
         this.nomeMedico = nomeMedico;
+    }
+
+    public List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(List<Paciente> pacientes) {
+        this.pacientes = pacientes;
     }
 }

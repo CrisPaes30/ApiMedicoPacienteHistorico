@@ -1,15 +1,10 @@
 package br.com.cristianpaes.apimedicoepacientes.Entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "paciente")
-public class PacienteEntity {
+public class Paciente {
 
 
     @Id
@@ -27,9 +22,9 @@ public class PacienteEntity {
 
     @ManyToOne
     @JoinColumn(name = "medico_id")
-    private MedicoEntity medico;
+    private Medico medico;
 
-    public PacienteEntity(Long pacienteId, String nome, String nascimento, Integer telefone, MedicoEntity medico) {
+    public Paciente(Long pacienteId, String nome, String nascimento, Integer telefone, Medico medico) {
         this.pacienteId = pacienteId;
         this.nome = nome;
         this.nascimento = nascimento;
@@ -37,7 +32,7 @@ public class PacienteEntity {
         this.medico = medico;
     }
 
-    public PacienteEntity() {
+    public Paciente() {
     }
 
     public Long getPacienteId() {
@@ -72,11 +67,11 @@ public class PacienteEntity {
         this.telefone = telefone;
     }
 
-    public MedicoEntity getMedico() {
+    public Medico getMedico() {
         return medico;
     }
 
-    public void setMedico(MedicoEntity medico) {
+    public void setMedico(Medico medico) {
         this.medico = medico;
     }
 }

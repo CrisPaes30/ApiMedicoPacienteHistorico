@@ -1,8 +1,6 @@
 package br.com.cristianpaes.apimedicoepacientes.Controller;
 
-import br.com.cristianpaes.apimedicoepacientes.Entities.HistoricoEntity;
-import br.com.cristianpaes.apimedicoepacientes.Entities.MedicoEntity;
-import br.com.cristianpaes.apimedicoepacientes.Services.HistoricoService;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Medico;
 import br.com.cristianpaes.apimedicoepacientes.Services.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,24 +16,24 @@ public class MedicoController {
 
 
     @GetMapping
-    public List<MedicoEntity> findAll(){
+    public List<Medico> findAll(){
         return medicoService.findAll();
     }
 
     @GetMapping("/{id}")
-    public MedicoEntity findById(@PathVariable("id") final Long id){
+    public Medico findById(@PathVariable("id") final Long id){
         return medicoService.findById(id);
     }
 
 
 
     @PostMapping
-    public void create(@RequestBody final MedicoEntity medico){
+    public void create(@RequestBody final Medico medico){
         this.medicoService.create(medico);
     }
 
     @PutMapping
-    public void update(@RequestBody final MedicoEntity medico){
+    public void update(@RequestBody final Medico medico){
         this.medicoService.update(medico);
     }
 

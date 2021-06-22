@@ -1,7 +1,7 @@
 package br.com.cristianpaes.apimedicoepacientes.Repositories;
 
-import br.com.cristianpaes.apimedicoepacientes.Entities.PacienteEntity;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Paciente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PacienteRepository extends JpaRepository<PacienteEntity,Long> {
+public interface PacienteRepository extends JpaRepository<Paciente,Long> {
 }

@@ -1,6 +1,6 @@
 package br.com.cristianpaes.apimedicoepacientes.Services;
 
-import br.com.cristianpaes.apimedicoepacientes.Entities.PacienteEntity;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Paciente;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,20 +15,20 @@ public class PacienteService {
     PacienteRepository pacienteRepository;
 
 
-    public List<PacienteEntity> findAll(){
+    public List<Paciente> findAll(){
         return pacienteRepository.findAll();
     }
 
 
-    public PacienteEntity findById(Long id){
+    public Paciente findById(Long id){
         return pacienteRepository.findById(id).orElse(null);
     }
 
-    public PacienteEntity create(PacienteEntity paciente){
+    public Paciente create(Paciente paciente){
         return pacienteRepository.save(paciente);
     }
 
-    public PacienteEntity update(PacienteEntity paciente){
+    public Paciente update(Paciente paciente){
         return pacienteRepository.save(paciente);
     }
 
