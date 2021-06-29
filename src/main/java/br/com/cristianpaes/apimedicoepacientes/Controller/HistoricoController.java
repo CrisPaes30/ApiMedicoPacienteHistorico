@@ -44,10 +44,12 @@ public class HistoricoController {
 //    }
 
 
-    @GetMapping("/group{id}")
-    public ResponseEntity<MedDpDTO> findAll(@RequestParam(required = false) List<DepartmentDTO> medi) {
-        MedDpDTO medDpDTO = medicoService.group(medi);
-        return ResponseEntity.ok().body(medDpDTO);
+    @GetMapping("/group")
+    public DepartmentDTO findGroup(@RequestParam(required = false) List<MedDpDTO> dep){
+        return medicoService.findGroup(dep);
     }
+
+
+
 
 }

@@ -6,9 +6,12 @@ import br.com.cristianpaes.apimedicoepacientes.Entities.Medico;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MedicoService {
@@ -39,26 +42,19 @@ public class MedicoService {
     }
 
 
-//    public List<MedDpDTO> findByIdMedico(Long id){
-//        return medicoRepository.findByIdMedicoResponsavelOrderBy(id)
-//                .stream()
-//                .map(MedDpDTO::new)
-//                .collect(Collectors.toList());
-//    }
+    public DepartmentDTO findGroup(List<MedDpDTO> dto){
 
-    public MedDpDTO group (List<DepartmentDTO> med){
+         List<MedDpDTO> dep = new ArrayList<>();
 
-         List<MedDpDTO> listaMed = new ArrayList<>();
+        Medico mdc = null;
 
-         Medico md = null;
-
-         for(DepartmentDTO dp: med){
-              md = (Medico) medicoRepository.findByIdMedicoResponsavelOrderBy(dp.getIdMedico());
-             md.setIdMatricula(md.getIdMatricula());
-             md.setNomeMedico(md.getNomeMedico());
+         for(MedDpDTO md: dep){
+             mdc = (Medico) medicoRepository.findByGroupMedico(md.getDepartamento());
          }
-        return new MedDpDTO(listaMed,md);
+         return new DepartmentDTO(dep, mdc);
     }
+
+    
 
 
 }

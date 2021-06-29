@@ -1,48 +1,24 @@
 package br.com.cristianpaes.apimedicoepacientes.DTO;
 
 import br.com.cristianpaes.apimedicoepacientes.Entities.Medico;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class MedDpDTO implements Serializable {
 
-public class MedDpDTO {
+    private static final long serialVersionUID = 1L;
 
-    private List<DepartmentDTO> medicos = new ArrayList<>();
-    private String departamento;
-    private Long idMedico;
+    List<DepartmentDTO> departamento = new ArrayList<>();
+    String nomeMedico;
 
-
-    public MedDpDTO(List<DepartmentDTO> medicos, String departamento, Long idMedico) {
-        this.medicos = medicos;
-        this.departamento = departamento;
-        this.idMedico = idMedico;
-    }
-
-    public MedDpDTO() {
-    }
-
-    public List<DepartmentDTO> getMedicos() {
-        return medicos;
-    }
-
-    public void setMedicos(List<DepartmentDTO> medicos) {
-        this.medicos = medicos;
-    }
-
-    public String getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
-    }
-
-    public Long getIdMedico() {
-        return idMedico;
-    }
-
-    public void setIdMedico(Long idMedico) {
-        this.idMedico = idMedico;
-    }
 }

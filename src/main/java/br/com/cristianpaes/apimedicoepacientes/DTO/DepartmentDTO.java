@@ -7,38 +7,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class DepartmentDTO implements Serializable {
 
-public class DepartmentDTO {
+    String departamento;
 
-    String nome;
-    Long idMedico;
-
-    public DepartmentDTO(String nome, Long idMedico) {
-        this.nome = nome;
-        this.idMedico = idMedico;
-    }
-
-    public DepartmentDTO() {
-    }
-
-    public DepartmentDTO(List<MedDpDTO> listaMed, Medico md) {
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Long getIdMedico() {
-        return idMedico;
-    }
-
-    public void setIdMedico(Long idMedico) {
-        this.idMedico = idMedico;
+    public DepartmentDTO(List<MedDpDTO> dep, Medico mdc) {
     }
 }

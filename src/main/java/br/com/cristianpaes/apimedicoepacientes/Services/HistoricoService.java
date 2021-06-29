@@ -43,7 +43,7 @@ public class HistoricoService {
                 .collect(Collectors.toList());
     }
 
-//
+
 //    public List<HistoricoPacienteDTO> findByIdMedico(Long id){
 //        return historicoRepository.findByIdMedicoResponsavel(id)
 //                .stream()

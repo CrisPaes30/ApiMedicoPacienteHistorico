@@ -1,5 +1,6 @@
 package br.com.cristianpaes.apimedicoepacientes.Entities;
 
+import br.com.cristianpaes.apimedicoepacientes.DTO.DepartmentDTO;
 import br.com.cristianpaes.apimedicoepacientes.DTO.MedDpDTO;
 
 import javax.persistence.*;
@@ -39,9 +40,6 @@ public class Medico {
 
     public Medico(){
 
-    }
-
-    public Medico(List<MedDpDTO> listaMed, Medico md) {
     }
 
     public Long getIdMatricula() {
