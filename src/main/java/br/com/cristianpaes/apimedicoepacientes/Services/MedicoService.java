@@ -1,17 +1,12 @@
 package br.com.cristianpaes.apimedicoepacientes.Services;
 
 import br.com.cristianpaes.apimedicoepacientes.DTO.DepartmentDTO;
-import br.com.cristianpaes.apimedicoepacientes.DTO.MedDpDTO;
 import br.com.cristianpaes.apimedicoepacientes.Entities.Medico;
 import br.com.cristianpaes.apimedicoepacientes.Repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class MedicoService {
@@ -42,16 +37,8 @@ public class MedicoService {
     }
 
 
-    public DepartmentDTO findGroup(List<MedDpDTO> dto){
-
-         List<MedDpDTO> dep = new ArrayList<>();
-
-        Medico mdc = null;
-
-         for(MedDpDTO md: dep){
-             mdc = (Medico) medicoRepository.findByGroupMedico(md.getDepartamento());
-         }
-         return new DepartmentDTO(dep, mdc);
+    public List<DepartmentDTO> findGroup(){
+         return medicoRepository.findByOrderByDepartamentoDesc();
     }
 
     

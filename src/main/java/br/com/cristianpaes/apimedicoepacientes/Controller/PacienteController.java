@@ -18,9 +18,6 @@ public class PacienteController {
     @Autowired
     PacienteService pacienteService;
 
-    @Autowired
-    PacienteRepository pacienteRepository;
-
 
     public PacienteController(List<Paciente> pacientes) {
         this.pacientes = new ArrayList<>();

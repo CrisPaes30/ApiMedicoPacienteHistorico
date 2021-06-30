@@ -44,12 +44,12 @@ public class HistoricoService {
     }
 
 
-//    public List<HistoricoPacienteDTO> findByIdMedico(Long id){
-//        return historicoRepository.findByIdMedicoResponsavel(id)
-//                .stream()
-//                .map(hpDTO::toPacienteDTO)
-//                .collect(Collectors.toList());
-//    }
+    public List<HistoricoPacienteDTO> findByIdMedico(Long id){
+        return historicoRepository.findByIdMedicoResponsavel(id)
+                .stream()
+                .map(hpDTO::toPacienteDTO)
+                .collect(Collectors.toList());
+    }
 
 
 

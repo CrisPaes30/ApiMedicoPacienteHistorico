@@ -17,8 +17,8 @@ public interface HistoricoRepository extends JpaRepository<Historico, Long> {
 //            "group by h.paciente_id, h.id_medico_responsavel\n" +
 //            "order by count(*) DESC",nativeQuery = true)
 
-//    @Query("SELECT h FROM Historico h")
-//    List<Historico> findByIdMedicoResponsavel(Long id);
+    @Query("SELECT h FROM Historico h")
+    List<Historico> findByIdMedicoResponsavel(Long id);
 
 
     //@Query("SELECT h.medicoId FROM HistoricoEntity h WHERE h.medicoId >?1")

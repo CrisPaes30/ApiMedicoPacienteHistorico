@@ -10,13 +10,13 @@ import java.io.Serializable;
 public class Historico implements Serializable {
 
     @Column(nullable = false)
-    String dataHoraEntrada;
+    private String dataHoraEntrada;
 
     @Column(nullable = false)
-    String dataHoraSaida;
+    private String dataHoraSaida;
 
     @Column(nullable = false)
-    String diagnostico;
+    private String diagnostico;
 
     @EmbeddedId
     private PkIds pkIds;

@@ -9,16 +9,16 @@ public class Paciente {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long pacienteId;
+    private Long pacienteId;
 
     @Column(nullable = false)
-    String nome;
+    private String nome;
 
     @Column(nullable = false)
-    String nascimento;
+    private String nascimento;
 
     @Column(nullable = true)
-    Integer telefone;
+    private Integer telefone;
 
     @ManyToOne
     @JoinColumn(name = "medico_id")

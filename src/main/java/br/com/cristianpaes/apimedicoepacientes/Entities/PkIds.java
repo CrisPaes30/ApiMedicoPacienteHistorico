@@ -21,7 +21,6 @@ public class PkIds implements Serializable {
     private Long IdMedicoResponsavel;
 
     @EqualsAndHashCode.Include
-    //@JoinColumn(name = "paciente")
     private Long pacienteId;
 
 }

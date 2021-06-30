@@ -13,19 +13,19 @@ public class Medico {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Long idMatricula;
+    private Long idMatricula;
 
     @Column(nullable = false)
-    String departamento;
+    private String departamento;
 
     @Column(nullable = false)
-    String cargo;
+    private String cargo;
 
     @Column(nullable = true)
-    Integer telefone;
+    private Integer telefone;
 
     @Column(nullable = false)
-    String nomeMedico;
+    private String nomeMedico;
 
     @OneToMany(mappedBy = "medico")
     private List<Paciente> pacientes;

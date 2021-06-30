@@ -3,6 +3,7 @@ package br.com.cristianpaes.apimedicoepacientes.Controller;
 import br.com.cristianpaes.apimedicoepacientes.DTO.DepartmentDTO;
 import br.com.cristianpaes.apimedicoepacientes.DTO.HistoricoPacienteDTO;
 import br.com.cristianpaes.apimedicoepacientes.DTO.MedDpDTO;
+import br.com.cristianpaes.apimedicoepacientes.Entities.Medico;
 import br.com.cristianpaes.apimedicoepacientes.Services.HistoricoService;
 import br.com.cristianpaes.apimedicoepacientes.Services.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +44,9 @@ public class HistoricoController {
 //
 //    }
 
-
     @GetMapping("/group")
-    public DepartmentDTO findGroup(@RequestParam(required = false) List<MedDpDTO> dep){
-        return medicoService.findGroup(dep);
+    public List<DepartmentDTO> findGroup(){
+        return medicoService.findGroup();
     }
 
 
