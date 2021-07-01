@@ -1,7 +1,6 @@
 package br.com.cristianpaes.apimedicoepacientes.Controller;
 
 import br.com.cristianpaes.apimedicoepacientes.Entities.Paciente;
-import br.com.cristianpaes.apimedicoepacientes.Repositories.PacienteRepository;
 import br.com.cristianpaes.apimedicoepacientes.Services.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

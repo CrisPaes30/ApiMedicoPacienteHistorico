@@ -1,8 +1,5 @@
 package br.com.cristianpaes.apimedicoepacientes.Entities;
 
-import br.com.cristianpaes.apimedicoepacientes.DTO.DepartmentDTO;
-import br.com.cristianpaes.apimedicoepacientes.DTO.MedDpDTO;
-
 import javax.persistence.*;
 import java.util.List;
 

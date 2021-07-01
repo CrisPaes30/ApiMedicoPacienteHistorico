@@ -9,8 +9,6 @@ import java.util.List;
 
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
-//    @Query("SELECT h FROM Historico h")
-//    List<Medico> findByGroupMedico(String departamento, List<DepartmentDTO> mdDepartamento);
 
     @Query("select new br.com.cristianpaes.apimedicoepacientes.DTO.DepartmentDTO(m.departamento, count(m) as quantidade)\n" +
             "from Medico m group by m.departamento")
