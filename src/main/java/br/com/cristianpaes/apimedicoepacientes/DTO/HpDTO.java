@@ -2,12 +2,13 @@ package br.com.cristianpaes.apimedicoepacientes.DTO;
 
 import br.com.cristianpaes.apimedicoepacientes.Entities.Historico;
 import br.com.cristianpaes.apimedicoepacientes.Entities.Medico;
+import br.com.cristianpaes.apimedicoepacientes.Entities.PkIds;
 import org.springframework.stereotype.Component;
 
 @Component
 public class HpDTO {
 
-    public HistoricoPacienteDTO toPacienteDTO(Historico entity) {
+    public HistoricoPacienteDTO toHistoricoDTO(Historico entity) {
 
         var historicoPacienteDTO  = new HistoricoPacienteDTO();
         historicoPacienteDTO.setIdMatricula(entity.getIdMedicoResponsavel().getIdMatricula());
@@ -31,6 +32,13 @@ public class HpDTO {
         medicoDTO.setDepartamento(entity.getDepartamento());
 
         return medicoDTO;
+    }
+
+    public PacienteDTO toHistDTO(PkIds pkIds){
+        var pacienteDTO = new  PacienteDTO();
+        pacienteDTO.setPacienteId(pkIds.getPacienteId());
+
+        return pacienteDTO;
     }
 
 

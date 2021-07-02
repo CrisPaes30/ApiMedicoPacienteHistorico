@@ -27,7 +27,6 @@ public class MedicoController {
     }
 
 
-
     @PostMapping
     public void create(@RequestBody final Medico medico){
         this.medicoService.create(medico);
