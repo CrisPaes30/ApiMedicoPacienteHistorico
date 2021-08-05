@@ -26,23 +26,22 @@ public class Historico implements Serializable {
     @JoinColumns(value = {
             @JoinColumn(name = "idMedicoResponsavel", referencedColumnName = "idMatricula", insertable = false, updatable = false)
     })
-    private Medico IdMedicoResponsavel;
+    private Medico idMedicoResponsavel;
 
     @OneToOne
     @JoinColumns(value = {
-            @JoinColumn(name = "pacienteId", referencedColumnName = "pacienteId", insertable = false, updatable = false)
+            @JoinColumn(name = "IdPaciente", referencedColumnName = "IdPaciente", insertable = false, updatable = false)
     })
-    private Paciente pacienteId;
+    private Paciente idPaciente;
 
 
-    public Historico(String dataHoraEntrada, String dataHoraSaida, String diagnostico, PkIds pkIds,
-                     Medico idMedicoResponsavel, Paciente pacienteId) {
+    public Historico(String dataHoraEntrada, String dataHoraSaida, String diagnostico,
+                     Medico idMedicoResponsavel) {
         this.dataHoraEntrada = dataHoraEntrada;
         this.dataHoraSaida = dataHoraSaida;
         this.diagnostico = diagnostico;
         this.pkIds = pkIds;
-        this.IdMedicoResponsavel = idMedicoResponsavel;
-        this.pacienteId = pacienteId;
+        this.idMedicoResponsavel = idMedicoResponsavel;
     }
 
     public Historico(){
@@ -73,6 +72,7 @@ public class Historico implements Serializable {
         this.diagnostico = diagnostico;
     }
 
+
     public PkIds getPkIds() {
         return pkIds;
     }
@@ -82,19 +82,19 @@ public class Historico implements Serializable {
     }
 
     public Medico getIdMedicoResponsavel() {
-        return IdMedicoResponsavel;
+        return idMedicoResponsavel;
     }
 
     public void setIdMedicoResponsavel(Medico idMedicoResponsavel) {
-        IdMedicoResponsavel = idMedicoResponsavel;
+        this.idMedicoResponsavel = idMedicoResponsavel;
     }
 
-    public Paciente getPacienteId() {
-        return pacienteId;
+    public Paciente getIdPaciente() {
+        return idPaciente;
     }
 
-    public void setPacienteId(Paciente pacienteId) {
-        this.pacienteId = pacienteId;
+    public void setIdPaciente(Paciente idPaciente) {
+        this.idPaciente = idPaciente;
     }
 }
 

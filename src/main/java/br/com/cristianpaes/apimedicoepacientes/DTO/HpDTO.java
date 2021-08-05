@@ -11,9 +11,8 @@ public class HpDTO {
     public HistoricoPacienteDTO toHistoricoDTO(Historico entity) {
 
         var historicoPacienteDTO  = new HistoricoPacienteDTO();
-        historicoPacienteDTO.setIdMatricula(entity.getIdMedicoResponsavel().getIdMatricula());
-        historicoPacienteDTO.setIdPaciente(entity.getPacienteId().getPacienteId());
-        historicoPacienteDTO.setNomePaciente(entity.getPacienteId().getNome());
+        historicoPacienteDTO.setIdPaciente(entity.getIdPaciente().getPacienteId());
+        historicoPacienteDTO.setNomePaciente(entity.getIdPaciente().getNome());
         historicoPacienteDTO.setDataEntrada(entity.getDataHoraEntrada());
         historicoPacienteDTO.setDataSaida(entity.getDataHoraSaida());
         historicoPacienteDTO.setDiagnostico(entity.getDiagnostico());
@@ -34,12 +33,7 @@ public class HpDTO {
         return medicoDTO;
     }
 
-    public PacienteDTO toHistDTO(PkIds pkIds){
-        var pacienteDTO = new  PacienteDTO();
-        pacienteDTO.setPacienteId(pkIds.getPacienteId());
 
-        return pacienteDTO;
-    }
 
 
 

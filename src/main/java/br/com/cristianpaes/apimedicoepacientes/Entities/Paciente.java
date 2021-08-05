@@ -9,7 +9,7 @@ public class Paciente {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long pacienteId;
+    private Long IdPaciente;
 
     @Column(nullable = false)
     private String nome;
@@ -25,7 +25,7 @@ public class Paciente {
     private Medico medico;
 
     public Paciente(Long pacienteId, String nome, String nascimento, Integer telefone, Medico medico) {
-        this.pacienteId = pacienteId;
+        this.IdPaciente = pacienteId;
         this.nome = nome;
         this.nascimento = nascimento;
         this.telefone = telefone;
@@ -36,11 +36,11 @@ public class Paciente {
     }
 
     public Long getPacienteId() {
-        return pacienteId;
+        return IdPaciente;
     }
 
     public void setPacienteId(Long pacienteId) {
-        this.pacienteId = pacienteId;
+        this.IdPaciente = pacienteId;
     }
 
     public String getNome() {
